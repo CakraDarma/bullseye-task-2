@@ -1,6 +1,5 @@
 'use client';
 import { FormEvent, useState, useTransition } from 'react';
-import { createLink } from './actions';
 import CheckCircleIcon from '@heroicons/react/solid/CheckCircleIcon';
 import { XCircleIcon } from '@heroicons/react/solid';
 
@@ -24,14 +23,6 @@ export default function NewLinkForm() {
 		setPending(true);
 		setData(null);
 		setError(null);
-		createLink(formData)
-			.then((data) => {
-				setData(data);
-			})
-			.catch((err) => {
-				setError(err);
-			})
-			.finally(() => setPending(false));
 	};
 
 	function writeToClipboard(text) {
